@@ -279,12 +279,11 @@ td.meta2 { font-family: var(--display); font-weight: 700; color: var(--navy); wh
   <div class="wrap">
     <div class="inst">
       <div class="plate"><img src="img/rama.png" alt="Consejo Superior de la Judicatura · Dirección Seccional de Administración Judicial de Bogotá"></div>
-      <div class="plate" style="display:flex;gap:14px;align-items:center"><div class="instsep"></div><div class="ext"><small>Universidad</small><b>Externado</b><small>de Colombia</small></div></div>
+      <div class="plate"><img src="img/externado.png" alt="Universidad Externado de Colombia"></div>
     </div>
     <div class="herogrid">
       <div>
         <div class="herologo"><img src="img/spiref.png" alt="SPIREF+Vida. El bienestar nos une, el compromiso nos transforma."></div>
-        <p class="tag">Seis dimensiones, una vida plena</p>
       </div>
       <div class="herotext">
         <p class="eyebrow">Propuesta del Programa de Bienestar</p>
@@ -312,7 +311,7 @@ td.meta2 { font-family: var(--display); font-weight: 700; color: var(--navy); wh
 <main>
 <section id="dimensiones">
   <div class="wrap">
-    <div class="sechead"><div class="secnum" aria-hidden="true">01</div><div><p class="eyebrow">Modelo SPIRE+F</p><h2 class="h2">Seis dimensiones, una vida plena</h2></div></div>
+    <div class="sechead"><div class="secnum" aria-hidden="true">01</div><div><p class="eyebrow">Modelo SPIRE+F</p><h2 class="h2">Las seis dimensiones del bienestar</h2></div></div>
     <p class="lede" style="margin:-14px 0 28px">El bienestar es integral y no se reduce a una sola actividad. Elige una dimensión para ver cómo la valoran los servidores, qué prioridad le dan el equipo y el liderazgo, y qué iniciativas del programa la atienden.</p>
     <div class="dimgrid">
       <div class="wheel" id="wheel" role="group" aria-label="Dimensiones del bienestar">
@@ -358,14 +357,14 @@ td.meta2 { font-family: var(--display); font-weight: 700; color: var(--navy); wh
 
 <section id="objetivos">
   <div class="wrap">
-    <div class="sechead"><div class="secnum" aria-hidden="true">03</div><div><p class="eyebrow">Hacia dónde vamos</p><h2 class="h2">Objetivos</h2></div></div>
+    <div class="sechead"><div class="secnum" aria-hidden="true">03</div><div><p class="eyebrow">¿Hacia dónde vamos?</p><h2 class="h2">Objetivos</h2></div></div>
     <div class="og">
       <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/><path d="M12 12l8-8M17 4h3v3"/></svg>
       <div><h3>Objetivo general</h3><p>Contribuir al bienestar integral de los servidores judiciales y sus familias mediante un programa de bienestar laboral basado en las seis dimensiones del modelo SPIRE+F, que fortalezca la participación en las actividades institucionales, promueva el compromiso de los líderes con el bienestar de sus equipos y favorezca una cultura organizacional orientada al desarrollo integral y la calidad de vida.</p></div>
     </div>
     <div class="ocs" id="ocs"></div>
     <div class="impact">
-      <div class="box"><h3>Qué impacto queremos lograr</h3>
+      <div class="box"><h3>¿Qué impacto queremos lograr?</h3>
         <p>Contribuir al desarrollo integral de los servidores judiciales y a la mejora de su calidad de vida y la de sus familias, mediante actividades que fortalezcan la satisfacción, la motivación y el sentido de pertenencia, de modo que se sientan <b>valorados y respaldados</b>.</p>
         <p>Con SPIREF+Vida los servidores mejoran de manera continua su calidad de vida en los ámbitos laboral, familiar y personal, y se fortalece un clima organizacional positivo.</p></div>
       <div><h3 style="font-size:22px;margin-bottom:12px">Ventajas a lograr con el programa</h3><ul class="vents" id="vents"></ul></div>
@@ -375,7 +374,7 @@ td.meta2 { font-family: var(--display); font-weight: 700; color: var(--navy); wh
 
 <section id="estrategias" style="background:var(--bg2)">
   <div class="wrap">
-    <div class="sechead"><div class="secnum" aria-hidden="true" style="background:var(--surface)">04</div><div><p class="eyebrow">Cómo lo hacemos</p><h2 class="h2">Raíces, Puentes y Semillas</h2></div></div>
+    <div class="sechead"><div class="secnum" aria-hidden="true" style="background:var(--surface)">04</div><div><p class="eyebrow">¿Cómo lo hacemos?</p><h2 class="h2">Raíces, Puentes y Semillas</h2></div></div>
     <div class="tabs" role="tablist" id="tabs"></div>
     <div class="spanel" id="spanel" role="tabpanel"></div>
   </div>
@@ -547,10 +546,10 @@ function iniHTML(id) {
   if (x.maint) {
     body = `<div class="mt3">${[['intelectual', '4,6'], ['social', '4,8'], ['financiera', '5,0']].map(([k, v]) => { const d = DIM.find(z => z.k === k); return `<div style="--c:${d.c}"><b>${d.n}<span>${v}</span></b>${d.ex}</div>`; }).join('')}</div>`;
   } else {
-    body = `<span class="lab">Cómo se hace</span><ol>${x.steps.map(t => `<li><span>${t}</span></li>`).join('')}</ol>` + (x.wow ? `<p class="wow"><b>Momento WOW:</b> ${x.wow}</p>` : '');
+    body = `<span class="lab">¿Cómo se hace?</span><ol>${x.steps.map(t => `<li><span>${t}</span></li>`).join('')}</ol>` + (x.wow ? `<p class="wow"><b>Momento WOW:</b> ${x.wow}</p>` : '');
   }
   const meta = [['Responsable', x.r], ['Frecuencia', x.f]].concat(x.rec ? [['Recursos', x.rec]] : []);
-  return `<details class="ini" id="ini-${id.replace('.', '-')}"><summary><span class="code">${id}</span><h4>${x.t}<span class="q">${x.q}</span></h4></summary>
+  return `<details class="ini" id="ini-${id.replace('.', '-')}"><summary><span class="code">${id}</span><h4>${x.t}<span class="q">${x.maint ? '' : '<b>¿Qué es?</b> '}${x.q}</span></h4></summary>
    <div class="inib">${body}<div class="meta">${meta.map(([l, v]) => `<div><small>${l}</small>${v}</div>`).join('')}</div>${tags ? `<div class="dimtags">${tags}</div>` : ''}</div></details>`;
 }
 function showStrat(k) {
