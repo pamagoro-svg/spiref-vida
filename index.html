@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="SPIREF+Vida: propuesta del Programa de Bienestar para los servidores judiciales de la Dirección Seccional de Administración Judicial de Bogotá.">
+<link rel="icon" href="img/tree.png">
+<title>SPIREF+Vida</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Figtree:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: brand microsite — sticky nav, hero with landscape, interactive dimension wheel, tabbed strategies */
+:root {
+  --bg: #FFFFFF; --bg2: #F3F8EF; --surface: #FFFFFF; --line: #DFE7EE;
+  --fg: #263343; --muted: #5E6B7A; --navy: #12305A; --green: #2F8F3E; --lime: #7CBF3F; --sun: #F2B01E;
+  --plate: #FFFFFF; --navyband: #12305A; --onnavy: #E3EBF5;
+  --c-raices: #B5651D; --c-puentes: #2C4A8A; --c-semillas: #3E9B5F;
+  --t-raices: #FBF1E7; --t-puentes: #EAF0FA; --t-semillas: #E9F6EE;
+  --ok: #3FA34D; --mid: #E9A80F; --bad: #E5533D;
+  --display: "Lora", Georgia, "Times New Roman", serif;
+  --body: "Figtree", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --radius: 22px 6px 22px 6px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0D1928; --bg2: #11233A; --surface: #15283F; --line: #24405F;
+  --fg: #E3EAF2; --muted: #A2B2C4; --navy: #DCE7F5; --green: #8ACB45; --lime: #9ED36A; --sun: #F5C04A;
+  --plate: #F7FAF5; --navyband: #0A1522; --onnavy: #D6E1EE;
+  --c-raices: #E08A42; --c-puentes: #7FA3EA; --c-semillas: #6CC48D;
+  --t-raices: #2A2017; --t-puentes: #172741; --t-semillas: #142C21;
+  color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0D1928; --bg2: #11233A; --surface: #15283F; --line: #24405F;
+  --fg: #E3EAF2; --muted: #A2B2C4; --navy: #DCE7F5; --green: #8ACB45; --lime: #9ED36A; --sun: #F5C04A;
+  --plate: #F7FAF5; --navyband: #0A1522; --onnavy: #D6E1EE;
+  --c-raices: #E08A42; --c-puentes: #7FA3EA; --c-semillas: #6CC48D;
+  --t-raices: #2A2017; --t-puentes: #172741; --t-semillas: #142C21;
+  color-scheme: dark }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6; margin: 0; }
+h1, h2, h3, h4 { font-family: var(--display); color: var(--navy); line-height: 1.15; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+b, strong { color: var(--navy); font-weight: 700; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
+section { padding-block: 72px; scroll-margin-top: 64px; }
+.eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--green); }
+.h2 { font-size: clamp(28px, 4vw, 40px); margin-top: 6px; }
+.lede { color: var(--muted); max-width: 64ch; margin-top: 12px; font-size: 17px; }
+.sechead { display: flex; gap: 18px; align-items: center; margin-bottom: 32px; }
+.secnum { font-family: var(--display); font-weight: 700; font-size: 34px; color: var(--green); background: var(--bg2); width: 72px; height: 62px; border-radius: var(--radius); display: grid; place-items: center; flex: none; }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+
+/* nav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; gap: 18px; height: 60px; }
+.nav .brand { display: flex; align-items: center; gap: 8px; background: var(--plate); border-radius: 10px; padding: 3px 8px; flex: none; }
+.nav .brand img { height: 34px; }
+.nav ul { list-style: none; display: flex; gap: 4px; margin: 0 0 0 auto; padding: 0; overflow-x: auto; scrollbar-width: none; }
+.nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: var(--muted); padding: 7px 12px; border-radius: 20px; white-space: nowrap; display: block; }
+.nav a:hover, .nav a.on { color: var(--green); background: var(--bg2); }
+
+/* hero */
+.hero { position: relative; overflow: hidden; padding-block: 36px 0; background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%); }
+.inst { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.plate { background: var(--plate); border-radius: 12px; padding: 6px 12px; }
+.inst .plate img { height: 54px; width: auto; }
+.ext { display: flex; flex-direction: column; align-items: center; line-height: 1; font-family: var(--display); color: #1E6E3A; }
+.ext small { font-size: 11px; font-weight: 700; } .ext b { font-size: 24px; color: #1E6E3A; margin: 2px 0; }
+.instsep { width: 3px; height: 46px; background: #2F8F3E; border-radius: 2px; }
+.herogrid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; margin-top: 28px; position: relative; z-index: 2; }
+.herologo { background: var(--plate); border-radius: 40px 12px 40px 12px; padding: 18px 26px; }
+.tag { margin-top: 18px; font-size: 13px; letter-spacing: .38em; font-weight: 700; color: var(--navy); text-transform: uppercase; }
+.herotext h1 { font-size: clamp(24px, 3vw, 32px); }
+.herotext p { margin-top: 12px; color: var(--muted); }
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 22px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; }
+.stat b { display: block; white-space: nowrap; font-family: var(--display); font-size: clamp(22px, 6vw, 28px); color: var(--green); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 13.5px; color: var(--muted); }
+.hills { display: block; width: 100%; height: 120px; margin-top: 30px; }
+.byline { background: var(--navyband); color: var(--onnavy); font-size: 13.5px; padding-block: 14px; }
+.byline .wrap { display: flex; flex-wrap: wrap; gap: 6px 26px; }
+.byline b { color: #9ED36A; font-weight: 700; }
+
+/* dimensions */
+.dimgrid { display: grid; grid-template-columns: min(420px, 100%) minmax(0, 1fr); gap: 36px; align-items: start; }
+.wheel { position: relative; aspect-ratio: 1; max-width: 100%; width: 100%; }
+.wheel .core { position: absolute; inset: 31%; border-radius: 50%; background: var(--plate); display: grid; place-items: center; box-shadow: 0 0 0 10px var(--bg2); }
+.wheel .core img { width: 72%; }
+.dbtn { position: absolute; width: 24%; aspect-ratio: 1; transform: translate(-50%, -50%); border: none; border-radius: 50% 50% 50% 8%; background: var(--c); color: #fff; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font: 700 13px var(--body); transition: transform .25s, box-shadow .25s; box-shadow: 0 4px 14px rgba(0,0,0,.15); }
+.dbtn svg { width: 34%; height: auto; }
+.dbtn:hover { transform: translate(-50%, -50%) scale(1.07); }
+.dbtn[aria-pressed="true"] { transform: translate(-50%, -50%) scale(1.12); box-shadow: 0 0 0 4px var(--bg), 0 0 0 7px var(--c); }
+.dpanel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; border-top: 6px solid var(--dc); min-width: 0; }
+.dpanel h3 { font-size: 30px; color: var(--dc); }
+.dpanel .ex { color: var(--muted); margin-top: 6px; }
+.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+.metric { background: var(--bg2); border-radius: 14px; padding: 12px 14px; }
+.metric small { display: block; font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.metric b { font-family: var(--display); font-size: 26px; color: var(--navy); font-variant-numeric: tabular-nums; }
+.metric b i { font-style: normal; font-size: 14px; color: var(--muted); }
+.zone { display: inline-flex; gap: 8px; align-items: center; margin-top: 16px; font-weight: 700; font-size: 14px; padding: 6px 14px; border-radius: 20px; background: var(--bg2); color: var(--navy); }
+.zone::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--dc); }
+.dpanel p.znote { margin-top: 8px; color: var(--muted); font-size: 15px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.links .lbl { width: 100%; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ilink { border: 1.5px solid var(--sc); color: var(--sc); background: transparent; border-radius: 20px; padding: 5px 13px; font: 600 14px var(--body); cursor: pointer; }
+.ilink:hover { background: var(--sc); color: var(--bg); }
+
+/* diagnostico */
+.moms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.mom { background: var(--bg2); border-radius: 18px; padding: 20px; }
+.mom .n { font-family: var(--display); font-size: 14px; font-weight: 700; color: var(--green); }
+.mom h4 { font-size: 18px; margin: 6px 0; }
+.mom p { color: var(--muted); font-size: 15px; }
+.chartcard { margin-top: 26px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+.chhead { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+.chhead h3 { font-size: 22px; }
+.seg { display: inline-flex; background: var(--bg2); border-radius: 22px; padding: 4px; }
+.seg button { border: none; background: transparent; font: 700 14px var(--body); color: var(--muted); padding: 7px 16px; border-radius: 18px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--green); box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+.row { display: grid; grid-template-columns: 130px minmax(0, 1fr) 96px; gap: 14px; align-items: center; padding: 7px 0; }
+.row .nm { display: flex; gap: 8px; align-items: center; font-weight: 700; color: var(--navy); font-size: 15px; }
+.row .nm i { width: 12px; height: 12px; border-radius: 50%; background: var(--c); flex: none; }
+.track { position: relative; height: 22px; background: var(--bg2); border-radius: 11px; }
+.fill { position: absolute; inset: 0 auto 0 0; border-radius: 11px; background: var(--c); transition: width .7s cubic-bezier(.2,.8,.2,1); }
+.val { font-family: var(--display); font-weight: 700; font-size: 18px; color: var(--navy); font-variant-numeric: tabular-nums; }
+.dtrack { position: relative; height: 30px; }
+.dtrack::before { content: ""; position: absolute; left: 0; right: 0; top: 14px; height: 2px; background: repeating-linear-gradient(90deg, var(--line) 0 5px, transparent 5px 10px); }
+.dl { position: absolute; top: 12px; height: 6px; border-radius: 3px; background: var(--c); opacity: .35; }
+.dot { position: absolute; top: 3px; width: 24px; height: 24px; margin-left: -12px; border-radius: 50%; color: #fff; display: grid; place-items: center; font: 800 12px var(--body); box-shadow: 0 0 0 3px var(--surface); }
+.dot.eq { background: #2F8F3E; } .dot.li { background: #12305A; }
+:root[data-theme="dark"] .dot.li { background: #5C7FB8; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .dot.li { background: #5C7FB8; } }
+.gap { font-size: 12.5px; font-weight: 800; border-radius: 12px; padding: 3px 10px; text-align: center; background: var(--bg2); color: var(--muted); }
+.gap.hi { color: var(--bad); } .gap.ok { color: var(--ok); }
+.axis { display: grid; grid-template-columns: 130px minmax(0, 1fr) 96px; gap: 14px; font-size: 12px; color: var(--muted); margin-top: 4px; }
+.axis div { display: flex; justify-content: space-between; }
+.legend { display: flex; gap: 16px; font-size: 13.5px; font-weight: 700; color: var(--navy); }
+.legend span { display: inline-flex; gap: 6px; align-items: center; }
+.legend i { width: 12px; height: 12px; border-radius: 50%; }
+.chnote { margin-top: 16px; padding: 12px 14px; border-radius: 12px; background: var(--bg2); font-size: 15px; }
+.subh { font-size: 22px; margin: 40px 0 16px; }
+.barrs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.barr { display: flex; gap: 12px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px; font-weight: 600; color: var(--navy); font-size: 15px; line-height: 1.35; }
+.barr svg { flex: none; color: var(--bad); }
+.tris { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.tri { border-radius: 18px; padding: 18px; background: var(--surface); border: 1px solid var(--line); border-top: 5px solid var(--c); }
+.tri h4 { font-size: 18px; }
+.tri .t { display: inline-block; margin: 8px 0; font-size: 13.5px; font-weight: 800; color: var(--c); }
+.tri p { font-size: 15px; color: var(--muted); }
+.concl { margin-top: 28px; background: var(--navyband); color: var(--onnavy); border-radius: var(--radius); padding: 26px 30px; font-size: 17px; }
+.concl b { color: #fff; }
+.concl em { display: block; margin-top: 8px; font-family: var(--display); font-size: 21px; color: #9ED36A; }
+
+/* objetivos */
+.og { display: flex; gap: 18px; background: var(--bg2); border-radius: var(--radius); padding: 24px; }
+.og svg { flex: none; color: var(--green); }
+.og h3 { font-size: 22px; margin-bottom: 6px; }
+.ocs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+.oc { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+.oc .n { width: 38px; height: 38px; border-radius: 50%; background: var(--c); color: #fff; display: grid; place-items: center; font-family: var(--display); font-weight: 700; }
+.oc h4 { font-size: 19px; margin: 12px 0 6px; }
+.oc p { font-size: 15px; color: var(--muted); }
+.impact { margin-top: 30px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 26px; align-items: start; }
+.impact .box { background: var(--navyband); color: var(--onnavy); border-radius: var(--radius); padding: 24px; }
+.impact .box h3 { color: #fff; font-size: 22px; margin-bottom: 8px; }
+.impact .box p + p { margin-top: 10px; }
+.impact .box b { color: #9ED36A; }
+.vents { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.vents li { background: var(--bg2); border-radius: 14px; padding: 12px 14px; }
+.vents b { display: block; font-size: 15px; line-height: 1.3; }
+.vents span { display: block; font-size: 14px; color: var(--muted); margin-top: 3px; line-height: 1.45; }
+
+/* estrategias */
+.tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.tab { border: 2px solid var(--line); background: var(--surface); border-radius: var(--radius); padding: 16px; cursor: pointer; display: flex; gap: 14px; align-items: center; text-align: left; font: inherit; color: var(--fg); transition: border-color .2s, background .2s; }
+.tab img { width: 58px; flex: none; }
+.tab b { display: block; font-family: var(--display); font-size: 22px; color: var(--sc); }
+.tab span { font-size: 13.5px; color: var(--muted); }
+.tab[aria-selected="true"] { border-color: var(--sc); background: var(--st); }
+.spanel { margin-top: 22px; }
+.motto { font-family: var(--display); font-style: italic; font-size: clamp(22px, 3vw, 30px); color: var(--sc); }
+.flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+.fl { border-radius: 16px; padding: 14px 16px; position: relative; }
+.fl small { display: block; font-size: 11.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; }
+.fl p { font-size: 14.5px; line-height: 1.45; }
+.fl:nth-child(1) { background: #13284A; color: #fff; } .fl:nth-child(1) b { color: #fff; }
+.fl:nth-child(2) { background: #475A72; color: #fff; }
+.fl:nth-child(3) { background: var(--st); border: 1.5px solid var(--sc); }
+.fl:nth-child(4) { background: var(--surface); border: 1.5px solid var(--line); }
+.benef { margin-top: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 22px; list-style: none; padding: 0; }
+.benef li { display: flex; gap: 10px; font-size: 15px; }
+.benef li::before { content: "✓"; flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--sc); color: var(--bg); font-weight: 800; font-size: 12px; display: grid; place-items: center; margin-top: 2px; }
+.inis { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+details.ini { border: 1px solid var(--line); border-radius: 16px; background: var(--surface); overflow: hidden; }
+details.ini summary { list-style: none; cursor: pointer; display: flex; gap: 14px; align-items: center; padding: 14px 18px; }
+details.ini summary::-webkit-details-marker { display: none; }
+details.ini summary::after { content: "+"; margin-left: auto; font-size: 24px; color: var(--sc); font-weight: 400; transition: transform .2s; }
+details.ini[open] summary::after { transform: rotate(45deg); }
+details.ini[open] summary { background: var(--st); }
+.code { background: var(--sc); color: var(--bg); font-family: var(--display); font-weight: 700; border-radius: 9px; padding: 2px 10px; flex: none; }
+summary h4 { font-size: 19px; }
+summary .q { display: block; font-family: var(--body); font-size: 14px; color: var(--muted); font-weight: 400; margin-top: 2px; }
+.inib { padding: 16px 18px 18px; }
+.inib ol { margin: 6px 0 0; padding: 0; list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 6px; }
+.inib ol li { counter-increment: s; display: flex; gap: 10px; font-size: 15px; }
+.inib ol li::before { content: counter(s, lower-alpha); flex: none; width: 22px; height: 22px; border-radius: 7px; background: var(--sc); color: var(--bg); font-weight: 800; font-size: 12px; display: grid; place-items: center; margin-top: 1px; }
+.lab { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--sc); }
+.wow { margin-top: 12px; padding: 10px 14px; border-radius: 12px; border: 1.5px dashed var(--sun); font-size: 15px; }
+.wow b::before { content: "★ "; color: var(--sun); }
+.meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+.meta div { background: var(--bg2); border-radius: 12px; padding: 10px 12px; font-size: 14.5px; }
+.meta small { display: block; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.dimtags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.dimtags span { font-size: 12.5px; font-weight: 700; border-radius: 12px; padding: 2px 10px; color: #fff; background: var(--c); }
+.mt3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 10px; }
+.mt3 div { background: var(--bg2); border-radius: 12px; padding: 12px; border-top: 4px solid var(--c); font-size: 14.5px; }
+.mt3 b { display: flex; justify-content: space-between; }
+.indwrap { overflow-x: auto; margin-top: 8px; }
+table.ind { width: 100%; min-width: 640px; border-collapse: separate; border-spacing: 0 6px; font-size: 14.5px; }
+table.ind th { text-align: left; font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--bg); background: var(--sc); padding: 10px 12px; }
+table.ind th:first-child { border-radius: 10px 0 0 10px; } table.ind th:last-child { border-radius: 0 10px 10px 0; }
+table.ind td { background: var(--st); padding: 11px 12px; vertical-align: middle; }
+table.ind td:first-child { border-radius: 12px 0 0 12px; font-weight: 700; color: var(--navy); }
+table.ind td:last-child { border-radius: 0 12px 12px 0; }
+td.meta2 { font-family: var(--display); font-weight: 700; color: var(--navy); white-space: nowrap; }
+.sem { display: flex; gap: 4px; flex-wrap: wrap; }
+.sem span { font-size: 12px; font-weight: 700; color: #fff; border-radius: 8px; padding: 2px 8px; }
+.methods { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; align-items: center; }
+.methods span { border: 1.5px dashed var(--sc); border-radius: 20px; padding: 4px 12px; font-size: 14px; font-weight: 600; color: var(--navy); }
+
+/* closing */
+.closing { background: var(--navyband); color: var(--onnavy); text-align: center; padding-block: 64px 40px; }
+.closing blockquote { font-family: var(--display); font-style: italic; font-size: clamp(24px, 3.4vw, 36px); color: #fff; max-width: 26ch; margin: 0 auto; line-height: 1.3; }
+.closing .mini { display: flex; justify-content: center; gap: 10px; margin-top: 26px; flex-wrap: wrap; }
+.closing .mini span { width: 36px; height: 36px; border-radius: 50% 50% 50% 8%; background: var(--c); }
+.credits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; text-align: left; margin-top: 46px; border-top: 1px solid rgba(255,255,255,.15); padding-top: 26px; font-size: 14.5px; }
+.credits h4 { font-family: var(--body); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #9ED36A; margin-bottom: 6px; }
+.credits p { color: var(--onnavy); }
+
+@media (max-width: 860px) {
+  .herogrid, .dimgrid, .impact { grid-template-columns: minmax(0, 1fr); }
+  .wheel { margin: 0 auto; }
+  .moms, .tris, .barrs, .credits { grid-template-columns: minmax(0, 1fr); }
+  .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tabs { grid-template-columns: minmax(0, 1fr); }
+  .nav ul { display: none; }
+}
+@media (max-width: 560px) {
+  .metrics { gap: 8px; } .metric b { font-size: 22px; }
+  .ocs, .vents, .benef, .meta, .mt3, .flow { grid-template-columns: minmax(0, 1fr); }
+  .row, .axis { grid-template-columns: 96px minmax(0, 1fr) 70px; gap: 8px; }
+  .row .nm { font-size: 13px; }
+  .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .dbtn { font-size: 11px; }
+  section { padding-block: 52px; }
+}
+</style>
+</head>
+<body>
+
+
+<nav class="nav" aria-label="Secciones">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Inicio"><img src="img/spiref.png" alt="SPIREF+Vida"></a>
+    <ul>
+      <li><a href="#dimensiones">Dimensiones</a></li>
+      <li><a href="#diagnostico">Diagnóstico</a></li>
+      <li><a href="#objetivos">Objetivos</a></li>
+      <li><a href="#estrategias">Estrategias</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <div class="inst">
+      <div class="plate"><img src="img/rama.png" alt="Consejo Superior de la Judicatura · Dirección Seccional de Administración Judicial de Bogotá"></div>
+      <div class="plate" style="display:flex;gap:14px;align-items:center"><div class="instsep"></div><div class="ext"><small>Universidad</small><b>Externado</b><small>de Colombia</small></div></div>
+    </div>
+    <div class="herogrid">
+      <div>
+        <div class="herologo"><img src="img/spiref.png" alt="SPIREF+Vida. El bienestar nos une, el compromiso nos transforma."></div>
+        <p class="tag">Seis dimensiones, una vida plena</p>
+      </div>
+      <div class="herotext">
+        <p class="eyebrow">Propuesta del Programa de Bienestar</p>
+        <h1>Para los servidores judiciales de la Dirección Seccional de Administración Judicial de Bogotá</h1>
+        <p>Un programa basado en el diagnóstico SPIRE+F que prioriza la calidad y la adopción real por encima de la cantidad de actividades.</p>
+        <div class="stats">
+          <div class="stat"><b>+5.000</b><span>servidores judiciales</span></div>
+          <div class="stat"><b>≈34</b><span>sedes judiciales en Bogotá</span></div>
+          <div class="stat"><b>+$3.000 M</b><span>para bienestar social 2025–2026</span></div>
+          <div class="stat"><b>6</b><span>dimensiones del bienestar</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg class="hills" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 70 L120 40 L230 58 L360 18 L450 40 L560 10 L640 34 L760 20 L880 50 L1000 28 L1200 48 V120 H0Z" fill="#7FA6D1" opacity=".35"/>
+    <path d="M0 90 C 300 50, 600 95, 1200 60 V120 H0Z" fill="#7CBF3F" opacity=".75"/>
+    <path d="M0 105 C 350 80, 700 115, 1200 88 V120 H0Z" fill="#2F8F3E"/>
+  </svg>
+  <div class="byline"><div class="wrap">
+    <span><b>Especialización</b> en Gestión del Desarrollo Humano y Bienestar Social Empresarial · Universidad Externado de Colombia · 2026</span>
+  </div></div>
+</header>
+
+<main>
+<section id="dimensiones">
+  <div class="wrap">
+    <div class="sechead"><div class="secnum" aria-hidden="true">01</div><div><p class="eyebrow">Modelo SPIRE+F</p><h2 class="h2">Seis dimensiones, una vida plena</h2></div></div>
+    <p class="lede" style="margin:-14px 0 28px">El bienestar es integral y no se reduce a una sola actividad. Elige una dimensión para ver cómo la valoran los servidores, qué prioridad le dan el equipo y el liderazgo, y qué iniciativas del programa la atienden.</p>
+    <div class="dimgrid">
+      <div class="wheel" id="wheel" role="group" aria-label="Dimensiones del bienestar">
+        <div class="core"><img src="img/tree.png" alt=""></div>
+      </div>
+      <div class="dpanel" id="dpanel" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="diagnostico" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="sechead"><div class="secnum" aria-hidden="true" style="background:var(--surface)">02</div><div><p class="eyebrow">Lo que encontramos</p><h2 class="h2">Diagnóstico participativo</h2></div></div>
+    <div class="moms">
+      <div class="mom" style="background:var(--surface)"><span class="n">Momento 1</span><h4>Mapa de experiencia del equipo</h4><p>La oferta, la vivencia emocional y los puntos de dolor.</p></div>
+      <div class="mom" style="background:var(--surface)"><span class="n">Momento 2</span><h4>Mapa de habilitación organizacional</h4><p>La visión del liderazgo sobre el bienestar.</p></div>
+      <div class="mom" style="background:var(--surface)"><span class="n">Momento 3</span><h4>Triangulación de rankings</h4><p>El cruce entre la mirada del equipo y la del liderazgo.</p></div>
+    </div>
+
+    <div class="chartcard">
+      <div class="chhead">
+        <h3 id="chtitle">Satisfacción con la oferta</h3>
+        <div class="seg" role="group" aria-label="Vista del gráfico">
+          <button id="v-sat" aria-pressed="true">Satisfacción</button>
+          <button id="v-rank" aria-pressed="false">Ranking de impacto</button>
+        </div>
+      </div>
+      <div id="legend"></div>
+      <div id="chart"></div>
+      <div class="axis" id="axis"></div>
+      <p class="chnote" id="chnote"></p>
+    </div>
+
+    <h3 class="subh">Barreras para la participación</h3>
+    <div class="barrs" id="barrs"></div>
+
+    <h3 class="subh">Triangulación líder – equipo</h3>
+    <div class="tris" id="tris"></div>
+
+    <div class="concl">El programa actual es <b>bien valorado</b>, pero el acceso está limitado por <b>la carga laboral, los cupos y los horarios</b>. Además, liderazgo y equipo no coinciden en qué dimensiones priorizar.<em>Ese es el desafío que SPIREF+Vida busca resolver.</em></div>
+  </div>
+</section>
+
+<section id="objetivos">
+  <div class="wrap">
+    <div class="sechead"><div class="secnum" aria-hidden="true">03</div><div><p class="eyebrow">Hacia dónde vamos</p><h2 class="h2">Objetivos</h2></div></div>
+    <div class="og">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/><path d="M12 12l8-8M17 4h3v3"/></svg>
+      <div><h3>Objetivo general</h3><p>Contribuir al bienestar integral de los servidores judiciales y sus familias mediante un programa de bienestar laboral basado en las seis dimensiones del modelo SPIRE+F, que fortalezca la participación en las actividades institucionales, promueva el compromiso de los líderes con el bienestar de sus equipos y favorezca una cultura organizacional orientada al desarrollo integral y la calidad de vida.</p></div>
+    </div>
+    <div class="ocs" id="ocs"></div>
+    <div class="impact">
+      <div class="box"><h3>Qué impacto queremos lograr</h3>
+        <p>Contribuir al desarrollo integral de los servidores judiciales y a la mejora de su calidad de vida y la de sus familias, mediante actividades que fortalezcan la satisfacción, la motivación y el sentido de pertenencia, de modo que se sientan <b>valorados y respaldados</b>.</p>
+        <p>Con SPIREF+Vida los servidores mejoran de manera continua su calidad de vida en los ámbitos laboral, familiar y personal, y se fortalece un clima organizacional positivo.</p></div>
+      <div><h3 style="font-size:22px;margin-bottom:12px">Ventajas a lograr con el programa</h3><ul class="vents" id="vents"></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="estrategias" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="sechead"><div class="secnum" aria-hidden="true" style="background:var(--surface)">04</div><div><p class="eyebrow">Cómo lo hacemos</p><h2 class="h2">Raíces, Puentes y Semillas</h2></div></div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="spanel" id="spanel" role="tabpanel"></div>
+  </div>
+</section>
+</main>
+
+<footer class="closing">
+  <div class="wrap">
+    <blockquote>“Personas que cuidan la justicia, también merecen ser cuidadas.”</blockquote>
+    <div class="mini" id="mini" aria-hidden="true"></div>
+    <div class="credits">
+      <div><h4>Autores</h4><p>Cintia Marcela Bravo Martínez<br>Gina Natalia Gutierrez Reina<br>Lorena Isabel Cerro Parra<br>Luis Harry Lopez Benavides<br>Yeniffer Patricia Correa Leiva<br>Yury Maricela Yepes Acosta</p></div>
+      <div><h4>Docente</h4><p>Diana Zoranyi Rodríguez Pérez</p><h4 style="margin-top:14px">Materia</h4><p>Diseño de Programas de Bienestar</p></div>
+      <div><h4>Programa</h4><p>Especialización en Gestión del Desarrollo Humano y Bienestar Social Empresarial<br>Universidad Externado de Colombia · 2026</p><h4 style="margin-top:14px">Referencias</h4><p>Rama Judicial (s.f.). Intranet de la compañía.</p></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const IC = {
+  run:'<circle cx="14" cy="4.5" r="2"/><path d="M9 21l2.5-6 3 2.5V22M7 11.5l3.5-3 3.5 1 2.5 3.5 3 .5M10.5 8.5L9 14l-4 1"/>',
+  book:'<path d="M3 5.5C6 4 9 4 12 6c3-2 6-2 9-.5V19c-3-1.5-6-1.5-9 .5-3-2-6-2-9-.5z"/><path d="M12 6v13.5"/>',
+  people:'<circle cx="12" cy="7" r="2.6"/><circle cx="5.5" cy="9" r="2"/><circle cx="18.5" cy="9" r="2"/><path d="M7 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2M2 18c0-2.3 1.5-4 3.5-4M22 18c0-2.3-1.5-4-3.5-4"/>',
+  heart:'<path d="M12 20s-7.5-4.6-9-9.5C2 7 4.3 4.5 7.2 4.5c2 0 3.4 1.1 4.8 3 1.4-1.9 2.8-3 4.8-3C19.7 4.5 22 7 21 10.5 19.5 15.4 12 20 12 20z"/>',
+  lotus:'<path d="M12 19c-3-2-4-5.5-4-8.5 0-2 1.5-4.5 4-6.5 2.5 2 4 4.5 4 6.5 0 3-1 6.5-4 8.5z"/><path d="M8.3 12.5C6 11.5 4 11.5 2.5 12.2c.5 4 4 6.8 9.5 6.8 5.5 0 9-2.8 9.5-6.8-1.5-.7-3.5-.7-5.8.3"/>',
+  coins:'<ellipse cx="9" cy="6" rx="6" ry="2.5"/><path d="M3 6v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V6"/><path d="M9 16.5c-3.3 0-6-1.1-6-2.5v-4M9 20.5c-3.3 0-6-1.1-6-2.5v-4"/><ellipse cx="16" cy="14" rx="5" ry="2.2"/><path d="M11 14v4c0 1.2 2.2 2.2 5 2.2s5-1 5-2.2v-4"/>',
+  weight:'<path d="M2 12h20M5 8v8M8 6.5v11M16 6.5v11M19 8v8"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
+  mega:'<path d="M3 10v4h3l9 5V5L6 10z"/><path d="M18 9.5a3.5 3.5 0 010 5"/>',
+  hand:'<path d="M2 14h3.5l5 2.5h4a1.5 1.5 0 000-3H11"/><path d="M5.5 20H8l7 1.5 6.5-4.5a1.6 1.6 0 00-2-2.5L15.5 17"/>',
+  cap:'<rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>'
+};
+const svg = (n, s = 24, w = 1.9) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]}</svg>`;
+
+const STRAT = {
+  raices: { name: 'Raíces', sub: 'Continuidad · Lo que nos sostiene', c: 'var(--c-raices)', t: 'var(--t-raices)', img: 'img/raices.png', motto: 'Lo que nos sostiene, lo fortalecemos' },
+  puentes: { name: 'Puentes', sub: 'Optimización · Lo que nos acerca', c: 'var(--c-puentes)', t: 'var(--t-puentes)', img: 'img/puentes.png', motto: 'Bienestar físico al alcance de todos' },
+  semillas: { name: 'Semillas', sub: 'Innovación · Lo que sembramos', c: 'var(--c-semillas)', t: 'var(--t-semillas)', img: 'img/semillas.png', motto: 'Liderazgo que habilita el bienestar' }
+};
+
+const DIM = [
+  { k: 'fisica', n: 'Física', c: '#3E9B47', i: 'run', sat: 3.8, eq: 3, li: 6, ex: 'Caminatas ecológicas, gimnasio, clases dirigidas, juegos deportivos y carrera vertical.', zone: 'Reverso del punto ciego', note: 'Tiene la menor satisfacción del programa. El liderazgo la ubica como la de mayor impacto (6) y el equipo en el puesto 3. La causa son los cupos limitados, los horarios y la poca información oportuna.', ini: ['2.1', '2.2', '2.3', '2.4'] },
+  { k: 'intelectual', n: 'Intelectual', c: '#7A4FBF', i: 'book', sat: 4.6, eq: 4, li: 4, ex: 'Talleres de planeación financiera para prepensionados, de Excel, de ortografía y gramática, y espacios formativos de la entidad.', zone: 'Mantenimiento', note: 'Alta satisfacción y ningún punto de dolor. Equipo y liderazgo coinciden. Se mantiene la oferta sin ampliarla, para no sobrecargar.', ini: ['1.5'] },
+  { k: 'social', n: 'Social', c: '#F2B01E', i: 'people', sat: 4.8, eq: 2, li: 3, ex: 'Caminatas, jornadas de integración, Candlelight Amor y Amistad y actividades deportivas zonales.', zone: 'Mantenimiento', note: 'Alta satisfacción y ningún punto de dolor. Se mantiene la oferta y se refuerzan los espacios de integración entre compañeros.', ini: ['1.5', '1.1'] },
+  { k: 'emocional', n: 'Emocional', c: '#E8483F', i: 'heart', sat: 4.6, eq: 5, li: 5, ex: 'Programa Travesía en gestión emocional y proyecto de vida.', zone: 'Zona de consenso crítico', note: 'Líderes y equipo coinciden en que es una dimensión de alto impacto (5 y 5). La estrategia es dar continuidad a lo valorado con un calendario fijo.', ini: ['1.1', '1.3'] },
+  { k: 'espiritual', n: 'Espiritual', c: '#2F8BE0', i: 'lotus', sat: 4.2, eq: 6, li: 2, ex: 'Conexión con la naturaleza, la comunidad y el sentido del trabajo judicial.', zone: 'Punto ciego directivo', note: 'Es la dimensión de mayor necesidad para el equipo (6) y una de las de menor prioridad para el liderazgo (2). El programa busca hacer visible esa necesidad.', ini: ['1.2', '1.4', '3.2'] },
+  { k: 'financiera', n: 'Financiera', c: '#8DBF3A', i: 'coins', sat: 5.0, eq: 1, li: 1, ex: 'Talleres de planeación financiera, beneficios y servicios de la caja de compensación y alianzas con entidades financieras.', zone: 'Zona de baja fricción', note: 'La satisfacción más alta (5,0). Su último lugar en el ranking no refleja insatisfacción, solo un menor aporte relativo.', ini: ['1.5'] }
+];
+const fmt = v => v.toFixed(1).replace('.', ',');
+
+const INI = {
+  '1.1': { s: 'raices', t: 'Travesía emocional', q: 'Continuidad del Programa Travesía en gestión emocional y proyecto de vida.', steps: ['Dos ciclos al año de talleres breves y vivenciales sobre manejo de emociones, reconocimiento propio y proyecto de vida.', 'Calendario anual publicado desde enero.', 'Espacios de integración y recreación que fortalezcan vínculos entre compañeros.', 'Encuesta rápida al cierre de cada ciclo.'], wow: 'Cierre de cada ciclo con una jornada de reconocimiento donde los participantes comparten su avance.', r: 'Talento Humano', f: 'Semestral', rec: 'Facilitadores y espacio adecuado', d: ['emocional', 'social'] },
+  '1.2': { s: 'raices', t: 'Conexión con propósito', q: 'Actividades de conexión con la naturaleza, la comunidad y el sentido del trabajo.', steps: ['Caminatas y jornadas de siembra de árboles con reflexión guiada sobre el propósito de la labor judicial.', 'Acciones solidarias y de donación propuestas por los servidores.', 'Cierre de gratitud con la pregunta: ¿qué sentido tiene mi trabajo para la sociedad?', 'Opción de vincular a la familia.'], r: 'Talento Humano', f: 'Trimestral', rec: 'Transporte, aliados ambientales y caja de compensación', d: ['espiritual'] },
+  '1.3': { s: 'raices', t: 'Reconocimiento que acompaña', q: 'Respuesta a la barrera de reconocimiento y acompañamiento emocional.', steps: ['“Muro de gratitud” físico o digital donde los servidores reconocen a compañeros y líderes.', 'Reconocimiento trimestral por dependencia que destaque logros colectivos.', 'Espacio de escucha y acompañamiento emocional durante todo el año.'], r: 'Talento Humano y líderes', f: 'Continua, con reconocimiento trimestral', rec: 'Canal digital o cartelera y profesional de apoyo emocional', d: ['emocional'] },
+  '1.4': { s: 'raices', t: 'Voces del equipo, ojos del liderazgo', q: 'Estrategia para cerrar el punto ciego directivo en lo espiritual.', steps: ['Una sesión anual donde se presentan a los líderes los resultados de la triangulación.', 'Cada líder asume un compromiso concreto, por ejemplo facilitar que su equipo asista a una actividad de propósito.', 'Seguimiento de compromisos en el comité de bienestar.'], r: 'Talento Humano', f: 'Anual, con seguimiento semestral', rec: 'Informe de resultados y espacio en la agenda de los líderes', d: ['espiritual'] },
+  '1.5': { s: 'raices', t: 'Línea de mantenimiento: intelectual, social y financiera', q: 'Estas dimensiones tienen alta satisfacción (4,6; 4,8 y 5,0) y ningún punto de dolor. Se mantiene su oferta sin ampliarla, para no sobrecargar.', maint: true, r: 'Talento Humano', f: 'Según calendario anual', d: ['intelectual', 'social', 'financiera'] },
+  '2.1': { s: 'puentes', t: 'Más cupos, más horarios', q: 'Rediseño de la oferta física para que sea accesible.', steps: ['Diagnosticar la demanda: qué actividades se llenan primero y en qué horarios se pierde más participación.', 'Abrir más grupos por actividad, con horarios alternos (inicio de jornada, almuerzo, fin de jornada).', 'Crear un sistema transparente de inscripción con rotación: quienes no participaron en un ciclo tienen prioridad en el siguiente.', 'Reasignar recursos de actividades de baja adopción hacia las de alta demanda.'], r: 'Talento Humano', f: 'Diagnóstico inicial y ajuste semestral', rec: 'Instructores adicionales o más cupos con aliados', d: ['fisica'] },
+  '2.2': { s: 'puentes', t: 'Pausas activas en el puesto de trabajo', q: 'Actividad física breve dentro de la jornada, sin desplazamientos.', steps: ['Pausas de 10 a 15 minutos con estiramiento y respiración en el mismo despacho.', 'Videos guía cortos y tarjetas de ejercicios por dependencia.', 'Un “Embajador de Pausas” por dependencia.', 'Piloto en dos o tres despachos y ampliación según resultados.'], r: 'Talento Humano', f: 'Diaria o semanal', rec: 'Material audiovisual y apoyo de seguridad y salud en el trabajo', d: ['fisica'] },
+  '2.3': { s: 'puentes', t: 'Ruta saludable flexible', q: 'Más modalidades de participación en lo que ya existe.', steps: ['Grabar las clases dirigidas y de yoga para quienes no pueden asistir en vivo.', 'Convertir las jornadas de hábitos saludables en retos de varias semanas con seguimiento voluntario.', 'Programar caminatas y actividades recreodeportivas con fechas anunciadas con anticipación y opción de vincular a la familia.'], wow: 'Jornada anual “Día SPIREF+Vida en Movimiento” con familias, que combina actividades recreodeportivas y de desconexión.', r: 'Talento Humano', f: 'Retos trimestrales y jornada anual', rec: 'Plataforma de videos, premios simbólicos y espacio para la jornada', d: ['fisica'] },
+  '2.4': { s: 'puentes', t: 'Calendario claro, información oportuna', q: 'Respuesta a la barrera de comunicación y acceso a la información.', steps: ['Calendario trimestral con fechas, cupos, requisitos y pasos de inscripción.', 'Recordatorios por canales institucionales antes de cada actividad.', 'Aviso visible cuando se abran nuevos cupos.', 'Piezas gráficas con la identidad SPIREF+Vida (colores por dimensión, hashtag #SpireVida).'], r: 'Talento Humano', f: 'Trimestral, con recordatorios semanales', rec: 'Canales institucionales y diseño gráfico', d: ['fisica'] },
+  '3.1': { s: 'semillas', t: 'Líderes que cuidan', q: 'Formación y reflexión dirigidas a líderes y responsables de equipos.', steps: ['Dos talleres al año de 90 minutos con casos reales de las dependencias.', 'Contenidos: valor práctico del bienestar en el contexto laboral, relación entre bienestar y desempeño, y cómo equilibrar metas con participación.', 'Cada líder define un compromiso personal, revisado en un comité trimestral.', 'Reconocimiento a los despachos con buen equilibrio entre cumplimiento y bienestar.'], r: 'Talento Humano', f: 'Semestral', rec: 'Facilitador y espacio en la agenda de los líderes', d: [] },
+  '3.2': { s: 'semillas', t: 'Todas las dimensiones importan', q: 'Espacios de sensibilización para los trabajadores de despachos y juzgados.', steps: ['Sesiones de 30 a 45 minutos dentro de reuniones ya programadas.', 'Dinámicas para entender que las seis dimensiones son importantes para el desarrollo integral.', 'Énfasis en la dimensión espiritual como comprensión del propósito del trabajo dentro de la institución.'], r: 'Talento Humano', f: 'Una sesión por despacho al año', rec: 'Facilitador y material de apoyo', d: ['espiritual'] },
+  '3.3': { s: 'semillas', t: 'Participación respaldada', q: 'Directriz institucional (comunicación u oficio) que establece que los líderes de área deben permitir la participación de los servidores en las actividades de bienestar, y que las inasistencias requieren justificación válida.', steps: ['Elaborar la directriz con Talento Humano y validarla con la Dirección Ejecutiva.', 'Hacer un piloto de un semestre en dos o tres dependencias.', 'Definir un formato sencillo de justificación y criterios claros de inasistencia válida (por ejemplo, términos urgentes o audiencias programadas).', 'Garantizar la continuidad del servicio con participación por turnos y un tope de personas ausentes a la vez por despacho.', 'Evaluar el piloto con indicadores y feedback de líderes, y ampliar a toda la entidad solo si funciona.'], r: 'Talento Humano', f: 'Piloto de un semestre y luego extensión', rec: 'Documento de directriz, formato de justificación y seguimiento en el comité de bienestar', d: [] }
+};
+
+const SDATA = {
+  raices: {
+    flow: ['<b>Emocional:</b> satisfacción 4,6 y consenso (5 y 5). <b>Espiritual:</b> satisfacción 4,2 y ranking del equipo 6 frente a 2 del líder.', 'La oferta funciona, pero la necesidad espiritual no es visible para el liderazgo.', 'Dar continuidad a lo valorado con calendario fijo y hacer visible la necesidad espiritual a los líderes.', 'Mantener la satisfacción y reducir la brecha líder-equipo.'],
+    ben: ['Convierte el bienestar emocional en una fortaleza organizacional.', 'Protege la calidad de lo que ya es bien valorado.', 'Reduce la brecha de percepción entre líderes y equipo.', 'Refuerza el sentido de propósito de los servidores con su labor judicial.'],
+    ind: [['Satisfacción emocional y espiritual', 'Promedio de encuestas (línea base 4,6 y 4,2)', 'Mantener > 4,5', ['Excelente', 'Aceptable', 'Mejorar']], ['% de participación', '(Participantes / Convocados) × 100', '≥ 90%', ['Alta', 'Media', 'Baja']], ['Brecha líder-equipo (ranking espiritual)', 'Diferencia entre ranking del líder (2) y del equipo (6)', '< 2 puntos', ['Mínima', 'Moderada', 'Amplia']], ['Número de reconocimientos (Muro de gratitud)', 'Conteo consolidado por trimestre', '> 5 por mes', ['Alto', 'Medio', 'Bajo']], ['% de compromisos de líderes cumplidos', '(Cumplidos / Asumidos) × 100', '≥ 95%', ['Excelente', 'Aceptable', 'Deficiente']]],
+    met: ['Encuestas de cierre', 'Grupos focales', 'Mapa SPIRE+F anual']
+  },
+  puentes: {
+    flow: ['Menor satisfacción (<b>3,8</b>). El liderazgo la ubica en 6 y el equipo en 3.', 'Cupos limitados, horarios que dificultan participar y poca información oportuna.', 'Cambiar la forma de ofrecer las actividades existentes para que más servidores accedan.', 'Mayor cobertura y satisfacción, sin aumentar el número de actividades.'],
+    ben: ['Más servidores acceden a actividades que ya existen y ya son valoradas.', 'Reduce la frustración por no lograr acceder a actividades de interés.', 'Ayuda a gestionar los efectos de las cargas y la presión laboral.', 'Favorece la desconexión de la rutina.', 'Aprovecha mejor los recursos existentes.'],
+    ind: [['Satisfacción de la dimensión física', 'Incrementar frente a la línea base de 3,8', 'Promedio > 4,2', ['Excelente', 'Aceptable', 'Mejorar']], ['% de cobertura', '(Servidores participantes / Total de servidores) × 100', '≥ 85%', ['Alta', 'Media', 'Baja']], ['Razón de cupos ofrecidos frente a solicitudes', 'Cupos vs. solicitudes; acercarse a 1', 'Ratio 0,9 – 1,1', ['Excelente', 'Aceptable', 'Deficiente']], ['% de pausas activas realizadas', '(Realizadas / Programadas) × 100', '≥ 90%', ['Alta', 'Media', 'Baja']], ['Número de usos de las clases grabadas', 'Conteo de reproducciones por trimestre', '> 50 por mes', ['Alto', 'Medio', 'Bajo']], ['Percepción de facilidad de acceso', 'Encuesta', 'Promedio > 4,5', ['Excelente', 'Aceptable', 'Deficiente']]],
+    met: ['Registro de asistencia', 'Encuesta semestral', 'Comparación con la línea base']
+  },
+  semillas: {
+    flow: ['Las cargas y la presión laboral frenan la participación; el bienestar se percibe como “pérdida de tiempo”.', 'La participación depende de cada líder y no hay respaldo institucional claro.', 'Sensibilizar a líderes y servidores y establecer directrices que respalden la participación, probadas primero en un piloto.', 'Participación respaldada, sin afectar la continuidad del servicio.'],
+    ben: ['Cambia la percepción del bienestar: de interrupción de las labores a una acción que previene problemas de desempeño.', 'Da a los servidores respaldo formal para participar.', 'Fortalece la articulación entre Talento Humano y las dependencias.', 'Hace sostenible el programa, porque el cambio no depende solo de la oferta.'],
+    ind: [['% de líderes y servidores sensibilizados', '(Sensibilizados / Programados) × 100, anual', '≥ 95%', ['Excelente', 'Aceptable', 'Mejorar']], ['% de dependencias con la directriz implementada', '(Con directriz / Total) × 100', '≥ 90%', ['Alta', 'Media', 'Baja']], ['% de inasistencias justificadas frente al total', '(Justificadas / Totales) × 100', '≥ 95%', ['Excelente', 'Aceptable', 'Deficiente']], ['Variación en la participación: dependencias piloto vs. no piloto', 'Variación piloto vs. no piloto', 'Incremento > 5%', ['Alto', 'Medio', 'Bajo']], ['Percepción de apoyo del liderazgo al bienestar', 'Encuesta de percepción', 'Promedio > 4,2', ['Excelente', 'Aceptable', 'Bajo']], ['Brecha líder-equipo en el ranking de impacto', 'Ranking de impacto', '< 1,5 puntos', ['Mínima', 'Moderada', 'Amplia']]],
+    met: ['Encuestas', 'Grupos focales', 'Evaluación del piloto']
+  }
+};
+
+/* ---------- dimensions wheel ---------- */
+const wheel = document.getElementById('wheel');
+DIM.forEach((d, idx) => {
+  const a = (-90 + idx * 60) * Math.PI / 180;
+  const b = document.createElement('button');
+  b.className = 'dbtn'; b.id = 'dim-' + d.k;
+  b.style.setProperty('--c', d.c);
+  b.style.left = (50 + 37.5 * Math.cos(a)) + '%'; b.style.top = (50 + 37.5 * Math.sin(a)) + '%';
+  b.innerHTML = svg(d.i, 30, 2) + '<span>' + d.n + '</span>';
+  b.setAttribute('aria-pressed', 'false');
+  b.addEventListener('click', () => pickDim(d.k));
+  wheel.appendChild(b);
+});
+function pickDim(k) {
+  const d = DIM.find(x => x.k === k);
+  document.querySelectorAll('.dbtn').forEach(b => b.setAttribute('aria-pressed', String(b.id === 'dim-' + k)));
+  const p = document.getElementById('dpanel');
+  p.style.setProperty('--dc', d.c);
+  const links = d.ini.map(id => { const s = STRAT[INI[id].s]; return `<button class="ilink" style="--sc:${s.c}" data-ini="${id}">${id} ${INI[id].t}</button>`; }).join('');
+  p.innerHTML = `<h3>${d.n}</h3><p class="ex">${d.ex}</p>
+   <div class="metrics">
+    <div class="metric"><small>Satisfacción</small><b>${fmt(d.sat)}<i> / 5</i></b></div>
+    <div class="metric"><small>Ranking equipo</small><b>${d.eq}<i> / 6</i></b></div>
+    <div class="metric"><small>Ranking liderazgo</small><b>${d.li}<i> / 6</i></b></div>
+   </div>
+   <span class="zone">${d.zone}</span><p class="znote">${d.note}</p>
+   <div class="links"><span class="lbl">Iniciativas que la atienden</span>${links}</div>`;
+  p.querySelectorAll('.ilink').forEach(b => b.addEventListener('click', () => openIni(b.dataset.ini)));
+  try { localStorage.setItem('spiref-dim', k); } catch (e) {}
+}
+
+/* ---------- diagnosis chart ---------- */
+let view = 'sat';
+function drawChart() {
+  const ch = document.getElementById('chart'), ax = document.getElementById('axis'), lg = document.getElementById('legend'), note = document.getElementById('chnote');
+  document.getElementById('v-sat').setAttribute('aria-pressed', String(view === 'sat'));
+  document.getElementById('v-rank').setAttribute('aria-pressed', String(view === 'rank'));
+  if (view === 'sat') {
+    document.getElementById('chtitle').textContent = 'Satisfacción con la oferta (escala 1 a 5)';
+    lg.innerHTML = '';
+    const rows = [...DIM].sort((a, b) => b.sat - a.sat);
+    ch.innerHTML = rows.map(d => `<div class="row" style="--c:${d.c}"><span class="nm"><i></i>${d.n}</span><div class="track"><div class="fill" style="width:0%" data-w="${(d.sat - 1) / 4 * 100}"></div></div><span class="val">${fmt(d.sat)}</span></div>`).join('');
+    ax.innerHTML = '<span></span><div><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div><span></span>';
+    note.innerHTML = 'La calidad de las actividades es muy buena en general; <b>la dimensión física es la excepción</b>.';
+    requestAnimationFrame(() => requestAnimationFrame(() => ch.querySelectorAll('.fill').forEach(f => f.style.width = f.dataset.w + '%')));
+  } else {
+    document.getElementById('chtitle').textContent = 'Ranking de impacto: equipo frente a liderazgo';
+    lg.innerHTML = '<div class="legend" style="margin-bottom:10px"><span><i style="background:#2F8F3E"></i>Equipo</span><span><i style="background:#5C7FB8"></i>Liderazgo</span></div>';
+    ch.innerHTML = DIM.map(d => {
+      const pa = (d.eq - 1) / 5 * 100, pb = (d.li - 1) / 5 * 100, g = Math.abs(d.eq - d.li);
+      const tag = g === 0 ? '<span class="gap ok">coinciden</span>' : `<span class="gap ${g >= 3 ? 'hi' : ''}">brecha ${g}</span>`;
+      return `<div class="row" style="--c:${d.c}"><span class="nm"><i></i>${d.n}</span><div class="dtrack"><div class="dl" style="left:${Math.min(pa, pb)}%;width:${Math.abs(pa - pb)}%"></div><span class="dot li" style="left:${pb}%" title="Liderazgo: ${d.li}">${d.li}</span><span class="dot eq" style="left:${pa}%" title="Equipo: ${d.eq}">${d.eq}</span></div>${tag}</div>`;
+    }).join('');
+    ax.innerHTML = '<span></span><div><span>1 · menor</span><span>6 · mayor</span></div><span></span>';
+    note.innerHTML = 'Coinciden en emocional, intelectual y financiera. <b>Espiritual</b> es el punto ciego directivo (equipo 6, liderazgo 2) y <b>física</b> es su reverso (equipo 3, liderazgo 6).';
+  }
+}
+document.getElementById('v-sat').addEventListener('click', () => { view = 'sat'; drawChart(); });
+document.getElementById('v-rank').addEventListener('click', () => { view = 'rank'; drawChart(); });
+
+document.getElementById('barrs').innerHTML = [['weight', 'Altas cargas y presión laboral'], ['lotus', 'Dificultad para desconectarse'], ['clock', 'Poco tiempo para participar'], ['mega', 'Barreras de comunicación y acceso oportuno a la información'], ['hand', 'Necesidad de reconocimiento y acompañamiento'], ['people', 'Capacidad limitada de algunas iniciativas frente a la población']].map(([i, t]) => `<div class="barr">${svg(i, 26)}<span>${t}</span></div>`).join('');
+document.getElementById('tris').innerHTML = [['#E8483F', 'Zona de consenso crítico', 'Emocional · líder 5 / equipo 5', 'Ambos coinciden en que es una dimensión de alto impacto.'], ['#2F8BE0', 'Punto ciego directivo', 'Espiritual · líder 2 / equipo 6', 'Hallazgo adicional: la física es el reverso; el liderazgo la ubica en 6 y el equipo en 3.'], ['#8DBF3A', 'Zona de baja fricción', 'Financiera · líder 1 / equipo 1', 'No refleja insatisfacción, solo un menor aporte relativo.']].map(([c, h, t, p]) => `<div class="tri" style="--c:${c}"><h4>${h}</h4><span class="t">${t}</span><p>${p}</p></div>`).join('');
+
+/* ---------- objectives ---------- */
+document.getElementById('ocs').innerHTML = [['#3E9B47', 'Fortalecer la participación', 'de los servidores judiciales en las actividades de bienestar laboral, ampliando el acceso mediante <b>más cupos, horarios flexibles, modalidades alternativas y comunicación oportuna</b>, para integrar el bienestar en las dinámicas cotidianas de trabajo.'], ['#E9A80F', 'Sensibilizar a los líderes', 'sobre su papel como <b>habilitadores del bienestar laboral</b>, mediante formación, compromisos concretos y directrices institucionales que respalden la participación de sus equipos, sin afectar la continuidad del servicio.'], ['#2F8BE0', 'Promover el bienestar integral', 'de los servidores y sus <b>familias</b> mediante acciones orientadas a las <b>seis dimensiones del modelo SPIRE+F</b>: continuidad a las experiencias emocionales y espirituales más valoradas, menor brecha de percepción entre liderazgo y equipo, y equilibrio entre la vida personal, familiar y laboral.'], ['#E8483F', 'Fomentar una cultura organizacional', 'que valore el bienestar como parte del desarrollo institucional, fortaleciendo la <b>corresponsabilidad</b> entre líderes, servidores y la entidad mediante la medición periódica y la <b>mejora continua</b> del programa.']].map(([c, t, d], i) => `<div class="oc" style="--c:${c}"><span class="n">${i + 1}</span><h4>${t}</h4><p>${d}</p></div>`).join('');
+document.getElementById('vents').innerHTML = [['Mejorar la satisfacción con la oferta de bienestar', 'Experiencias más relevantes y alineadas con las necesidades de los servidores.'], ['Ampliar la cobertura de actividades físicas y recreodeportivas', 'Más servidores en espacios de actividad física, recreación y estilos de vida saludables.'], ['Reducir la brecha de percepción entre líderes y equipo', 'Una visión compartida sobre necesidades, prioridades e impacto del bienestar.'], ['Que los servidores perciban que su bienestar es valorado y respaldado', 'Reconocimiento institucional del bienestar como clave para la calidad de vida.'], ['Optimizar los canales de comunicación del programa', 'Comunicación clara, oportuna, accesible y atractiva sobre la oferta.'], ['Mejorar la gestión de las cargas y la presión laboral', 'Herramientas para el manejo del estrés, el tiempo y el equilibrio vida-trabajo.'], ['Fortalecer el sentido de propósito con la labor', 'Reconocer la importancia del trabajo en la administración de justicia.'], ['Mejorar el clima organizacional', 'Relaciones interpersonales, confianza, trabajo en equipo y sentido de pertenencia.']].map(([t, d]) => `<li><b>${t}</b><span>${d}</span></li>`).join('');
+
+/* ---------- strategies ---------- */
+const tabs = document.getElementById('tabs');
+Object.entries(STRAT).forEach(([k, s]) => {
+  const b = document.createElement('button');
+  b.className = 'tab'; b.id = 'tab-' + k; b.setAttribute('role', 'tab');
+  b.style.setProperty('--sc', s.c); b.style.setProperty('--st', s.t);
+  b.innerHTML = `<img src="${s.img}" alt=""><div><b>${s.name}</b><span>${s.sub}</span></div>`;
+  b.addEventListener('click', () => showStrat(k));
+  tabs.appendChild(b);
+});
+const SEM = ['var(--ok)', 'var(--mid)', 'var(--bad)'];
+function iniHTML(id) {
+  const x = INI[id], s = STRAT[x.s];
+  const tags = x.d.map(k => { const d = DIM.find(z => z.k === k); return `<span style="--c:${d.c}">${d.n}</span>`; }).join('');
+  let body;
+  if (x.maint) {
+    body = `<div class="mt3">${[['intelectual', '4,6'], ['social', '4,8'], ['financiera', '5,0']].map(([k, v]) => { const d = DIM.find(z => z.k === k); return `<div style="--c:${d.c}"><b>${d.n}<span>${v}</span></b>${d.ex}</div>`; }).join('')}</div>`;
+  } else {
+    body = `<span class="lab">Cómo se hace</span><ol>${x.steps.map(t => `<li><span>${t}</span></li>`).join('')}</ol>` + (x.wow ? `<p class="wow"><b>Momento WOW:</b> ${x.wow}</p>` : '');
+  }
+  const meta = [['Responsable', x.r], ['Frecuencia', x.f]].concat(x.rec ? [['Recursos', x.rec]] : []);
+  return `<details class="ini" id="ini-${id.replace('.', '-')}"><summary><span class="code">${id}</span><h4>${x.t}<span class="q">${x.q}</span></h4></summary>
+   <div class="inib">${body}<div class="meta">${meta.map(([l, v]) => `<div><small>${l}</small>${v}</div>`).join('')}</div>${tags ? `<div class="dimtags">${tags}</div>` : ''}</div></details>`;
+}
+function showStrat(k) {
+  const s = STRAT[k], d = SDATA[k];
+  document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', String(t.id === 'tab-' + k)));
+  const p = document.getElementById('spanel');
+  p.style.setProperty('--sc', s.c); p.style.setProperty('--st', s.t);
+  const labels = ['Hallazgo', 'Causa', 'Estrategia', 'Resultado esperado'];
+  const ids = Object.keys(INI).filter(i => INI[i].s === k);
+  p.innerHTML = `<p class="motto">“${s.motto}”</p>
+   <div class="flow">${d.flow.map((t, i) => `<div class="fl"><small>${labels[i]}</small><p>${t}</p></div>`).join('')}</div>
+   <h3 class="subh" style="margin-top:28px">Beneficios</h3><ul class="benef">${d.ben.map(t => `<li>${t}</li>`).join('')}</ul>
+   <h3 class="subh">Iniciativas clave</h3><div class="inis">${ids.map(iniHTML).join('')}</div>
+   <h3 class="subh">Indicadores de seguimiento</h3>
+   <div class="indwrap"><table class="ind"><thead><tr><th>Indicador clave</th><th>Descripción / método</th><th>Meta</th><th>Escala de valoración</th></tr></thead>
+   <tbody>${d.ind.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td class="meta2">${r[2]}</td><td><div class="sem">${r[3].map((l, i) => `<span style="background:${SEM[i]}">${l}</span>`).join('')}</div></td></tr>`).join('')}</tbody></table></div>
+   <div class="methods"><span class="lab">Métodos de evaluación</span>${d.met.map(m => `<span>${m}</span>`).join('')}</div>`;
+  try { localStorage.setItem('spiref-strat', k); } catch (e) {}
+}
+function openIni(id) {
+  showStrat(INI[id].s);
+  const el = document.getElementById('ini-' + id.replace('.', '-'));
+  if (el) { el.open = true; el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+}
+
+/* closing leaves */
+document.getElementById('mini').innerHTML = DIM.map(d => `<span style="--c:${d.c}"></span>`).join('');
+
+/* nav highlight */
+const navLinks = [...document.querySelectorAll('.nav ul a')];
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) navLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id)); }), { rootMargin: '-45% 0px -50% 0px' });
+['dimensiones', 'diagnostico', 'objetivos', 'estrategias'].forEach(id => io.observe(document.getElementById(id)));
+
+/* init */
+let d0 = 'espiritual', s0 = 'raices';
+try { d0 = localStorage.getItem('spiref-dim') || d0; s0 = localStorage.getItem('spiref-strat') || s0; } catch (e) {}
+const h = location.hash.replace('#', '');
+if (STRAT[h]) { s0 = h; }
+pickDim(DIM.some(x => x.k === d0) ? d0 : 'espiritual');
+showStrat(STRAT[s0] ? s0 : 'raices');
+drawChart();
+if (STRAT[h]) document.getElementById('estrategias').scrollIntoView();
+</script>
+
+</body>
+</html>
